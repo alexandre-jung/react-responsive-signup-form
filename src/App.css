@@ -1,0 +1,50 @@
+/*
+Center everything on the screen until the .App
+*/
+html, body, #root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+Do not make the form too big on large screens
+*/
+.form {
+    background-color: white;
+    max-width: 800px;
+}
+
+/*
+Responsive image that covers the available space
+*/
+img {
+    object-fit: cover !important;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+Limit the form header width on medium screens and bigger
+*/
+@media screen and (min-width: 992px) {
+    header {
+        max-width: 320px !important;
+    }
+
+    html {
+        padding: 50px;
+    }
+}
+
+label::after {
+    content: '*';
+    font-size: 0.8em;
+    color: rgb(156, 156, 156);
+    margin-left: 5px;
+}
+
+label.optional::after {
+    content: '(facultatif)';
+}
