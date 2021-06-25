@@ -6,6 +6,7 @@ interface InputProps {
     label: string,
     required: boolean,
     compact: boolean,
+    placeholder: string,
 }
 
 interface InputState {
@@ -19,6 +20,7 @@ export default class Input extends React.Component<InputProps, InputState> {
         label: '',
         required: false,
         compact: false,
+        placeholder: '',
     }
 
     public constructor(props: InputProps) {
@@ -42,7 +44,7 @@ export default class Input extends React.Component<InputProps, InputState> {
     }
 
     public render() {
-        let { id, type, label, required, compact } = this.props;
+        let { id, type, label, required, compact, placeholder } = this.props;
         return (
             <div className={"form-group col-12 my-2" + (compact ? ' col-md-6' : undefined)}>
                 <label htmlFor={id} className={!this.props.required ? 'optional' : undefined}>{label}</label>
@@ -50,6 +52,7 @@ export default class Input extends React.Component<InputProps, InputState> {
                     className='form-control'
                     onChange={this.handleChange}
                     value={this.state.value}
+                    placeholder={placeholder}
                     required={required} />
             </div>
         );

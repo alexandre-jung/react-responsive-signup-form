@@ -24,17 +24,17 @@ export default class SignupForm extends React.Component<SignupFormProps> {
     public render() {
         let { title } = this.props;
         return (
-            <div className="d-flex form rounded shadow mx-auto overflow-hidden flex-column flex-lg-row">
+            <div className="d-flex form rounded shadow mx-auto overflow-hidden flex-column flex-lg-row" id='signup'>
                 <FormIllustration />
                 <form className='justify-content-center p-4 container-fluid' onSubmit={this.handleSubmit}>
                     <div className="row">
                         <h2 className='fw-bold mb-4'>{title}</h2>
-                        <Input id='lastName' type='text' label='Nom' compact />
-                        <Input id='firstName' type='text' label='Prénom' compact />
-                        <Input id='email' type='email' label='Email' required />
-                        <Input id='password' type='password' label='Mot de passe' required compact />
+                        <Input id='lastName' type='text' label='Nom' placeholder='Dupont' compact />
+                        <Input id='firstName' type='text' label='Prénom' placeholder='Jean' compact />
+                        <Input id='email' type='email' label='Email' placeholder='jean-dupont@gmail.com' required />
+                        <Input id='password' type='password' label='Mot de passe' placeholder='Au moins 8 caractères' required compact />
                         <Input id='passwordCheck' type='password' label='Vérifiez le mot de passe' required compact />
-                        <small className='text-black-50 mt-3'>Les champs marqués d'un * sont obligatoires</small>
+                        <small className='form-text text-muted mt-3'>Les champs marqués d'un * sont obligatoires</small>
                         <SubmitButton value='Inscription' />
                     </div>
                 </form>
