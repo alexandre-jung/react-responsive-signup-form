@@ -26,11 +26,11 @@ img {
 }
 
 /*
-Limit the form header width on medium screens and bigger
+Limit the form header width on large screens and bigger
 */
 @media screen and (min-width: 992px) {
     header {
-        max-width: 320px !important;
+        max-width: 300px !important;
     }
 
     html {
