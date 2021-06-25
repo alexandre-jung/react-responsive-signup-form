@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, ReactNode } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 import FormIllustration from './FormIllustration';
@@ -7,13 +7,32 @@ interface SignupFormProps {
     title: string,
 }
 
-export default class SignupForm extends React.Component<SignupFormProps> {
+interface SignupFromState {
+    password: string,
+    passwordCheck: string,
+}
+
+export default class SignupForm extends React.Component<SignupFormProps, SignupFromState> {
 
     static defaultProps = {
         title: '',
     }
 
-    protected handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    /**
+     * Constructor
+     */
+    public constructor(props: SignupFormProps) {
+        super(props);
+        this.state = {
+            password: '',
+            passwordCheck: '',
+        }
+    }
+
+    /**
+     * Handle the form submitting
+     */
+    protected handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
 
         // The form is being submitted
         // ...
@@ -21,7 +40,71 @@ export default class SignupForm extends React.Component<SignupFormProps> {
         event.preventDefault();
     }
 
-    public render() {
+    /**
+     * Update the password value
+     */
+    protected updatePassword = (password: string): void => {
+        this.setState({ password });
+    }
+
+    /**
+     * Update the password verification value
+     */
+    protected updatePasswordCheck = (passwordCheck: string): void => {
+        this.setState({ passwordCheck });
+    }
+
+    /**
+     * Check the password and return a boolean or null if empty
+     */
+    protected validatePassword(): boolean | null {
+        let { password } = this.state;
+        return password ? password.length >= 8 : null;
+    }
+
+
+    /**
+     * Check wether the password verification matches the password
+     * and return a boolean or null if empty
+     */
+    protected validatePasswordCheck(): boolean | null {
+        let { password, passwordCheck } = this.state;
+        return passwordCheck ? passwordCheck === password : null;
+    }
+
+    /**
+     * Render the password field
+     */
+    protected renderPasswordField(): ReactNode {
+        return (
+            <Input id='password'
+                type='password'
+                label='Mot de passe'
+                placeholder='Au moins 8 caractères'
+                isValid={this.validatePassword()}
+                onChange={this.updatePassword}
+                required compact />
+        );
+    }
+
+    /**
+     * Render the password verification field
+     */
+    protected renderPasswordCheckField(): ReactNode {
+        return (
+            <Input id='passwordCheck'
+                type='password'
+                label='Vérifiez le mot de passe'
+                onChange={this.updatePasswordCheck}
+                isValid={this.validatePasswordCheck()}
+                required compact />
+        );
+    }
+
+    /**
+     * Render this component
+     */
+    public render(): ReactNode {
         let { title } = this.props;
         return (
             <div className="d-flex form rounded shadow mx-auto overflow-hidden flex-column flex-lg-row" id='signup'>
@@ -32,8 +115,8 @@ export default class SignupForm extends React.Component<SignupFormProps> {
                         <Input id='lastName' type='text' label='Nom' placeholder='Dupont' compact />
                         <Input id='firstName' type='text' label='Prénom' placeholder='Jean' compact />
                         <Input id='email' type='email' label='Email' placeholder='jean-dupont@gmail.com' required />
-                        <Input id='password' type='password' label='Mot de passe' placeholder='Au moins 8 caractères' required compact />
-                        <Input id='passwordCheck' type='password' label='Vérifiez le mot de passe' required compact />
+                        {this.renderPasswordField()}
+                        {this.renderPasswordCheckField()}
                         <small className='form-text text-muted mt-3'>Les champs marqués d'un * sont obligatoires</small>
                         <SubmitButton value='Inscription' />
                     </div>
