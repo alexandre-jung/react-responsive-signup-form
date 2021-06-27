@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
     return (
-        <div className="App container my-5">
+        <div className="App container my-2 my-lg-5">
             <SignupForm title='Inscrivez-vous' />
         </div>
     );

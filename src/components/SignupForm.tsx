@@ -2,7 +2,7 @@ import React, { FormEvent, ReactNode } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 import FormIllustration from './FormIllustration';
-import { validateEmail } from '../lib/validation';
+import { validateEmail, validatePassword } from '../lib/validation';
 
 interface SignupFormProps {
     title: string,
@@ -81,7 +81,7 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
      */
     protected validatePassword(): boolean | null {
         let { password } = this.state;
-        return password ? password.length >= 8 : null;
+        return password ? validatePassword(password) : null;
     }
 
 
@@ -117,7 +117,7 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
             <Input id='password'
                 type='password'
                 label='Mot de passe'
-                placeholder='Au moins 8 caractères'
+                placeholder='a-ZA-Z0-9{}[]-_...'
                 isValid={this.validatePassword()}
                 onChange={this.updatePassword}
                 required compact />
@@ -154,7 +154,8 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
                         {this.renderEmailField()}
                         {this.renderPasswordField()}
                         {this.renderPasswordCheckField()}
-                        <small className='form-text text-muted mt-3'>Les champs marqués d'un * sont obligatoires</small>
+                        <small className='form-text'>Le mot de passe doit contenir au moins 8 caractères, dont des chiffres et des lettres, une majuscule et un caractère spécial (sans espaces)</small>
+                        <small className='form-text text-danger mt-4'>Les champs marqués d'un * sont obligatoires</small>
                         <SubmitButton value='Inscription' />
                     </div>
                 </form>

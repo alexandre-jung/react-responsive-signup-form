@@ -29,6 +29,7 @@ img {
 Limit the form header width on large screens and bigger
 */
 @media screen and (min-width: 992px) {
+
     header {
         max-width: 300px !important;
     }
@@ -37,14 +38,30 @@ Limit the form header width on large screens and bigger
         padding: 50px;
     }
 }
+/* End large screen breakpoint */
 
+/*
+Form label equired marker
+*/
 label::after {
     content: '*';
-    font-size: 0.8em;
-    color: rgb(156, 156, 156);
+    font-size: 1.2em;
+    color: #dc3545;
     margin-left: 5px;
 }
 
+/*
+Form label optional marker
+*/
 label.optional::after {
     content: '(facultatif)';
+    color: #6c757d;
+    font-size: 0.8em;
+}
+
+/*
+Make the placeholders a bit smaller
+*/
+::placeholder {
+    font-size: 0.9em;
 }
