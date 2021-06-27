@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-responsive-signup-form/static/css/main.92c83b24.chunk.css",
-    "main.js": "/react-responsive-signup-form/static/js/main.426c76ef.chunk.js",
-    "main.js.map": "/react-responsive-signup-form/static/js/main.426c76ef.chunk.js.map",
+    "main.js": "/react-responsive-signup-form/static/js/main.ae32f07c.chunk.js",
+    "main.js.map": "/react-responsive-signup-form/static/js/main.ae32f07c.chunk.js.map",
     "runtime-main.js": "/react-responsive-signup-form/static/js/runtime-main.8111be6e.js",
     "runtime-main.js.map": "/react-responsive-signup-form/static/js/runtime-main.8111be6e.js.map",
     "static/js/2.7498ccab.chunk.js": "/react-responsive-signup-form/static/js/2.7498ccab.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8111be6e.js",
     "static/js/2.7498ccab.chunk.js",
     "static/css/main.92c83b24.chunk.css",
-    "static/js/main.426c76ef.chunk.js"
+    "static/js/main.ae32f07c.chunk.js"
   ]
 }
