@@ -2,12 +2,14 @@ import React, { FormEvent, ReactNode } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 import FormIllustration from './FormIllustration';
+import validateEmail from '../lib/validation';
 
 interface SignupFormProps {
     title: string,
 }
 
 interface SignupFromState {
+    email: string,
     password: string,
     passwordCheck: string,
 }
@@ -24,6 +26,7 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
     public constructor(props: SignupFormProps) {
         super(props);
         this.state = {
+            email: '',
             password: '',
             passwordCheck: '',
         }
@@ -34,10 +37,23 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
      */
     protected handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
 
-        // The form is being submitted
-        // ...
-        alert('Le formulaire a été soumis');
+        // Prevent the browser from submitting the form and reload the page
         event.preventDefault();
+
+        if (this.validateEmail() &&
+            this.validatePassword() &&
+            this.validatePasswordCheck()) {
+            alert('Le formulaire est valide !');
+            return;
+        }
+        alert("Le formulaire n'est pas valide...");
+    }
+
+    /**
+     * Update the email value
+     */
+    protected updateEmail = (email: string): void => {
+        this.setState({ email });
     }
 
     /**
@@ -52,6 +68,11 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
      */
     protected updatePasswordCheck = (passwordCheck: string): void => {
         this.setState({ passwordCheck });
+    }
+
+    protected validateEmail(): boolean | null {
+        let { email } = this.state;
+        return email ? validateEmail(email) : null;
     }
 
     /**
@@ -70,6 +91,21 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
     protected validatePasswordCheck(): boolean | null {
         let { password, passwordCheck } = this.state;
         return passwordCheck ? passwordCheck === password : null;
+    }
+
+    /**
+     * Render the email field
+     */
+    protected renderEmailField(): ReactNode {
+        return (
+            <Input id='email'
+                type='email'
+                label='Email'
+                placeholder='jean-dupont@gmail.com'
+                onChange={this.updateEmail}
+                isValid={this.validateEmail()}
+                required />
+        );
     }
 
     /**
@@ -114,7 +150,7 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
                         <h2 className='fw-bold mb-4'>{title}</h2>
                         <Input id='lastName' type='text' label='Nom' placeholder='Dupont' compact />
                         <Input id='firstName' type='text' label='Prénom' placeholder='Jean' compact />
-                        <Input id='email' type='email' label='Email' placeholder='jean-dupont@gmail.com' required />
+                        {this.renderEmailField()}
                         {this.renderPasswordField()}
                         {this.renderPasswordCheckField()}
                         <small className='form-text text-muted mt-3'>Les champs marqués d'un * sont obligatoires</small>
