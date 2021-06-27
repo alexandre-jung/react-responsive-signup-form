@@ -1,8 +1,8 @@
 import { validateEmail, validatePassword } from '../lib/validation';
 
-describe('Input validation', () => {
+describe('Input validation', (): void => {
 
-    describe('Emails', () => {
+    describe('Emails', (): void => {
 
         const invalidEmails = [
             'test.gmail.com',
@@ -18,20 +18,20 @@ describe('Input validation', () => {
             'long-email.test@gmail.fr',
         ];
 
-        it('Reject bad emails', () => {
+        it('Reject bad emails', (): void => {
             invalidEmails.forEach(invalidEmail => {
                 expect(validateEmail(invalidEmail)).toBeFalsy();
             });
         });
 
-        it('Accept valid emails', () => {
+        it('Accept valid emails', (): void => {
             validEmails.forEach(validEmail => {
                 expect(validateEmail(validEmail)).toBeTruthy();
             });
         });
     });
 
-    describe('Passwords', () => {
+    describe('Passwords', (): void => {
 
         const invalidPasswords = [
             'abc=123+',
@@ -46,13 +46,13 @@ describe('Input validation', () => {
             'abC=123+',
         ];
 
-        it('Reject bad passwords', () => {
+        it('Reject bad passwords', (): void => {
             invalidPasswords.forEach(invalidPassword => {
                 expect(validatePassword(invalidPassword)).toBeFalsy();
             });
         });
 
-        it('Accept valid passwords', () => {
+        it('Accept valid passwords', (): void => {
             validPasswords.forEach(validPassword => {
                 expect(validatePassword(validPassword)).toBeTruthy();
             });
