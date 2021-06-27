@@ -2,7 +2,7 @@ import React, { FormEvent, ReactNode } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 import FormIllustration from './FormIllustration';
-import validateEmail from '../lib/validation';
+import { validateEmail } from '../lib/validation';
 
 interface SignupFormProps {
     title: string,
