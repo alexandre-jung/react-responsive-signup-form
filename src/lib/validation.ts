@@ -23,6 +23,10 @@ function atLeast1Digit(s: string): boolean {
     return (s.match(/\d/) || []).length >= 1;
 }
 
+function atLeast1LowerCase(s: string): boolean {
+    return (s.match(/[a-z]/) || []).length >= 1;
+}
+
 function atLeast1Uppercase(s: string): boolean {
     return (s.match(/[A-Z]/) || []).length >= 1;
 }
@@ -42,6 +46,7 @@ export function validatePassword(password: string): boolean {
         atLeast8Chars,
         atLeast1specialChar,
         atLeast1Digit,
+        atLeast1LowerCase,
         atLeast1Uppercase,
         noWhitespace,
     ];

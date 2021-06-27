@@ -39,6 +39,7 @@ describe('Input validation', () => {
             '12345678',
             'abcd1234',
             'a C=123+',
+            'ABC=123+',
         ];
 
         const validPasswords = [
