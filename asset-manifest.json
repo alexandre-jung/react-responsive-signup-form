@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-responsive-signup-form/static/css/main.fc383feb.chunk.css",
-    "main.js": "/react-responsive-signup-form/static/js/main.cf2cfa97.chunk.js",
-    "main.js.map": "/react-responsive-signup-form/static/js/main.cf2cfa97.chunk.js.map",
+    "main.css": "/react-responsive-signup-form/static/css/main.92c83b24.chunk.css",
+    "main.js": "/react-responsive-signup-form/static/js/main.426c76ef.chunk.js",
+    "main.js.map": "/react-responsive-signup-form/static/js/main.426c76ef.chunk.js.map",
     "runtime-main.js": "/react-responsive-signup-form/static/js/runtime-main.8111be6e.js",
     "runtime-main.js.map": "/react-responsive-signup-form/static/js/runtime-main.8111be6e.js.map",
     "static/js/2.7498ccab.chunk.js": "/react-responsive-signup-form/static/js/2.7498ccab.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.6e27fef5.chunk.js": "/react-responsive-signup-form/static/js/3.6e27fef5.chunk.js",
     "static/js/3.6e27fef5.chunk.js.map": "/react-responsive-signup-form/static/js/3.6e27fef5.chunk.js.map",
     "index.html": "/react-responsive-signup-form/index.html",
-    "static/css/main.fc383feb.chunk.css.map": "/react-responsive-signup-form/static/css/main.fc383feb.chunk.css.map",
+    "static/css/main.92c83b24.chunk.css.map": "/react-responsive-signup-form/static/css/main.92c83b24.chunk.css.map",
     "static/js/2.7498ccab.chunk.js.LICENSE.txt": "/react-responsive-signup-form/static/js/2.7498ccab.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8111be6e.js",
     "static/js/2.7498ccab.chunk.js",
-    "static/css/main.fc383feb.chunk.css",
-    "static/js/main.cf2cfa97.chunk.js"
+    "static/css/main.92c83b24.chunk.css",
+    "static/js/main.426c76ef.chunk.js"
   ]
 }
