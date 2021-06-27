@@ -72,6 +72,7 @@ export default class SignupForm extends React.Component<SignupFormProps, SignupF
 
     protected validateEmail(): boolean | null {
         let { email } = this.state;
+        email = email.trim();
         return email ? validateEmail(email) : null;
     }
 
