@@ -1,4 +1,4 @@
-import { validateEmail } from '../lib/validation';
+import { validateEmail, validatePassword } from '../lib/validation';
 
 describe('Input validation', () => {
 
@@ -27,6 +27,33 @@ describe('Input validation', () => {
         it('Accept valid emails', () => {
             validEmails.forEach(validEmail => {
                 expect(validateEmail(validEmail)).toBeTruthy();
+            });
+        });
+    });
+
+    describe('Passwords', () => {
+
+        const invalidPasswords = [
+            'abc=123+',
+            'abcdefgh',
+            '12345678',
+            'abcd1234',
+            'a C=123+',
+        ];
+
+        const validPasswords = [
+            'abC=123+',
+        ];
+
+        it('Reject bad passwords', () => {
+            invalidPasswords.forEach(invalidPassword => {
+                expect(validatePassword(invalidPassword)).toBeFalsy();
+            });
+        });
+
+        it('Accept valid passwords', () => {
+            validPasswords.forEach(validPassword => {
+                expect(validatePassword(validPassword)).toBeTruthy();
             });
         });
     });
